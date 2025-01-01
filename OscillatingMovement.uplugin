@@ -4,21 +4,25 @@
 	"VersionName": "1.0",
 	"FriendlyName": "OscillatingMovement",
 	"Description": "Easy way to oscillate components",
-	"Category": "Other",
+	"Category": "Movement",
 	"CreatedBy": "MaxEstLa",
 	"CreatedByURL": "https://www.maxestla.com/",
-	"DocsURL": "",
-	"MarketplaceURL": "",
-	"SupportURL": "",
+	"DocsURL": "https://maxestla.gitbook.io/oscillation-movement-component-documention",
+	"FabURL": "com.epicgames.launcher://ue/Fab/product/a2c7073a-f8ef-4d2b-94c4-1a957e22361d",
+	"SupportURL": "https://discord.gg/hUWAxpv5Ug",
 	"CanContainContent": false,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
+	"EngineVersion": "5.5.0",
 	"Installed": false,
 	"Modules": [
 		{
 			"Name": "OscillatingMovement",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
 		}
 	]
 }
