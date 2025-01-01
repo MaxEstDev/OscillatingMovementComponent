@@ -1,4 +1,4 @@
-// MaxEstLa - Blood Rush - ALL RIGHTS RESERVED 2022-2025
+// MaxEstLa - Oscillating Movement Component - ALL RIGHTS RESERVED 2025
 
 
 #include "OscillatingMovementComponent.h"

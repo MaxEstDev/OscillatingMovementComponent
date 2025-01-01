@@ -1,4 +1,4 @@
-// MaxEstLa - Blood Rush - ALL RIGHTS RESERVED 2022-2025
+// MaxEstLa - Oscillating Movement Component - ALL RIGHTS RESERVED 2025
 
 #pragma once
 
@@ -36,10 +36,10 @@ public:
 	UOscillatingMovementComponent();
 	
 	UPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum = "EOscillatingLocationAxis"))
-	uint8 LocationOscillationFlags;
+	uint8 LocationOscillationFlags = 0;
 
 	UPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum = "EOscillatingRotationAxis"))
-	uint8 RotationOscillationFlags;
+	uint8 RotationOscillationFlags = 0;
 	
 	UPROPERTY(EditAnywhere, Category = "OscillatingMovement | X", meta = (EditConditionHides, EditCondition="LocationOscillationFlags > 0"))
 	float Amplitude_X = 1.f;
