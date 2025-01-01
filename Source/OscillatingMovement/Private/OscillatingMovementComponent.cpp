@@ -29,7 +29,7 @@ float UOscillatingMovementComponent::LocationOscillationEquation_Implementation(
 
 float UOscillatingMovementComponent::RotationOscillationEquation_Implementation(const float Time) const
 {
-	return FMath::Cos(Time);
+	return FMath::Sin(Time);
 }
 
 float UOscillatingMovementComponent::GetXLocationOffset() const
