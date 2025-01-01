@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "GameFramework/Actor.h"
+#include "Components/SceneComponent.h"
+#include "Engine/World.h"
 #include "OscillatingMovementComponent.generated.h"
 
 UENUM(BlueprintType, meta = (Bitflags, UseEnumValuesAsMaskValuesInEditor = "true"))
@@ -34,12 +37,19 @@ class OSCILLATINGMOVEMENT_API UOscillatingMovementComponent : public UActorCompo
 public:
 	// Sets default values for this component's properties
 	UOscillatingMovementComponent();
-	
-	UPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum = "EOscillatingLocationAxis"))
+
+
+	//Which axis should be affected
+	UPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum = "EOscillatingLocationAxis"), Category = "OscillatingMovement")
 	uint8 LocationOscillationFlags = 0;
 
-	UPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum = "EOscillatingRotationAxis"))
+	//Which rotation axis should be affected
+	UPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum = "EOscillatingRotationAxis"), Category = "OscillatingMovement")
 	uint8 RotationOscillationFlags = 0;
+
+	//Global movement multiplier
+	UPROPERTY(EditAnywhere, Category = "OscillatingMovement", meta = (EditConditionHides, EditCondition="LocationOscillationFlags + RotationOscillationFlags > 0"))
+	float AmplitudeMultiplier = 1.0f;
 	
 	UPROPERTY(EditAnywhere, Category = "OscillatingMovement | X", meta = (EditConditionHides, EditCondition="LocationOscillationFlags > 0"))
 	float Amplitude_X = 1.f;
@@ -102,12 +112,15 @@ public:
 	UPROPERTY(EditAnywhere, Category = "OscillatingMovement | Misc")
 	bool UseOwnerTime = true;
 
+	/** Assign the component we move and update. */
 	UFUNCTION(BlueprintCallable, Category = "OscillatingMovement | Setup")
 	void SetUpdatedComponent(USceneComponent* NewUpdatedComponent = nullptr);
 
+	/** This function is called and defines the math to use to update the location */
 	UFUNCTION(BlueprintNativeEvent, Category= "OscillatingMovement | Math")
 	float LocationOscillationEquation(const float Time) const;
 
+	/** This function is called and defines the math to use to update the rotation */
 	UFUNCTION(BlueprintNativeEvent, Category= "OscillatingMovement | Math")
 	float RotationOscillationEquation(const float Time) const;
 

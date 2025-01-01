@@ -2,6 +2,9 @@
 
 
 #include "OscillatingMovementComponent.h"
+#include "GameFramework/Actor.h"
+#include "Components/SceneComponent.h"
+#include "Engine/World.h"
 
 
 UOscillatingMovementComponent::UOscillatingMovementComponent()
@@ -71,7 +74,7 @@ FVector UOscillatingMovementComponent::GetLocationOffset() const
 		Location = GetComponentToUpdate()->GetComponentRotation().RotateVector(Location);
 	}
 	
-	return Location;
+	return Location * AmplitudeMultiplier;
 }
 
 float UOscillatingMovementComponent::GetPitchRotationOffset() const
@@ -109,7 +112,7 @@ FRotator UOscillatingMovementComponent::GetRotationOffset() const
 	}
 
 	
-	return Rotation;
+	return Rotation * AmplitudeMultiplier;
 }
 
 // Called when the game starts
