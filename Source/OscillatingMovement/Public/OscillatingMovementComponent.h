@@ -26,7 +26,7 @@ enum class EOscillatingRotationAxis : uint8
 	AffectRoll	= 1 << 3,
 };
 
-UCLASS(ClassGroup=(Movement), meta=(BlueprintSpawnableComponent))
+UCLASS(ClassGroup=(Movement), meta=(BlueprintSpawnableComponent), Blueprintable)
 class OSCILLATINGMOVEMENT_API UOscillatingMovementComponent : public UActorComponent
 {
 	GENERATED_BODY()
@@ -48,16 +48,16 @@ public:
 	float Offset_X = 0.f;
 
 	UPROPERTY(EditAnywhere, Category = "OscillatingMovement | X", meta = (EditConditionHides, EditCondition="LocationOscillationFlags > 0"))
-	float Frequency_Y = 1.f;
-
+	float Frequency_X = 1.f;
+	
 	UPROPERTY(EditAnywhere, Category = "OscillatingMovement | Y", meta = (EditConditionHides, EditCondition="LocationOscillationFlags > 0"))
 	float Amplitude_Y = 1.f;
 	
 	UPROPERTY(EditAnywhere, Category = "OscillatingMovement | Y", meta = (EditConditionHides, EditCondition="LocationOscillationFlags > 0"))
 	float Offset_Y = 0.f;
-	
+
 	UPROPERTY(EditAnywhere, Category = "OscillatingMovement | Y", meta = (EditConditionHides, EditCondition="LocationOscillationFlags > 0"))
-	float Frequency_X = 1.f;
+	float Frequency_Y = 1.f;
 
 	UPROPERTY(EditAnywhere, Category = "OscillatingMovement | Z", meta = (EditConditionHides, EditCondition="LocationOscillationFlags > 0"))
 	float Amplitude_Z = 1.f;
