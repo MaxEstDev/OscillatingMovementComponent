@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// MaxEstLa - Oscillating Movement Component - ALL RIGHTS RESERVED 2025
 
 #pragma once
 
